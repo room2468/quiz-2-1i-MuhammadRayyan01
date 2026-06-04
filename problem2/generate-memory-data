@@ -12,3 +12,6 @@ used_kb=$(( total_kb - available_kb ))
 
 echo $(( total_kb / 1024 ))
 echo $(( used_kb / 1024 ))
+echo $((used_kb))
+echo $((used_kb * 100 / total_kb))
+
