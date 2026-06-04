@@ -9,9 +9,19 @@
 total_kb=$(grep "^MemTotal:" /proc/meminfo | awk '{print $2}')
 available_kb=$(grep "^MemAvailable:" /proc/meminfo | awk '{print $2}')
 used_kb=$(( total_kb - available_kb ))
-
+usage=$((used_kb * 100 / total_kb))
 echo $(( total_kb / 1024 ))
 echo $(( used_kb / 1024 ))
 echo $((used_kb))
-echo $((used_kb * 100 / total_kb))
+echo $((usage))
 
+if [ $usage -lt 70 ];
+then
+echo "Status: Normal"
+else if [ $usage -gt 70 && -lt 89 ];
+then
+echo "Status: Warning"
+else if [ $usage -gt 90 ];
+then
+echo "Status: Critical"
+fi
