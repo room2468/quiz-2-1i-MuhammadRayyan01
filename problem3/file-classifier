@@ -20,7 +20,7 @@ while IFS= read -r filename || [[ -n "$filename" ]]; do
     #        esac
 
     # TODO: Replace this line with your case statement
-    echo "TODO"
+echo "todo"    
 done
 
 echo "Scripts (.sh): $scripts"
