@@ -26,3 +26,10 @@ read -r used_mb
 # TODO: Replace this line with your implementation
 echo "free:$((total_mb-used_mb))"
 echo "usage percentage:$((used_mb * 100 / total_mb))"
+echo "usage=$((usage))"
+if [ "$usage" -ge "100" ]; then
+echo "boiling"
+else
+echo "liquid"
+fi
+
